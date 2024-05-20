@@ -1,0 +1,13 @@
+#!/bin/bash
+WORDCHARS='*?[]~=&;!#$%^(){}<>'
+
+# Mover una palabra hacia adelante con Ctrl + Right Arrow
+bindkey '\e[1;5C' forward-word
+bindkey '\e[5C' forward-word
+bindkey '\e\e[C' forward-word
+
+# Mover una palabra hacia atrás con Ctrl + Left Arrow
+bindkey '\e[1;5D' backward-word
+bindkey '\e[5D' backward-word
+bindkey '\e\e[D' backward-word
+

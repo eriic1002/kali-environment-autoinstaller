@@ -16,12 +16,18 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+bspc config border_ width 0
 
 vmware-user-suid-wrapper &
 
 feh --bg-fill /usr/share/wallpapers/custom/wallpaper.jpg &
 
-# Polybar
+/usr/local/bin/picom &
+
+
+# ==========================================
+#                  Polybar
+# ==========================================
 killall -q polybar
 
 ## Wait until the processes have been shut down
@@ -39,3 +45,5 @@ polybar primary -c ~/.config/polybar/current.ini &
 
 ## Center bar
 polybar primary -c ~/.config/polybar/workspace.ini &
+
+wname LG3D &
