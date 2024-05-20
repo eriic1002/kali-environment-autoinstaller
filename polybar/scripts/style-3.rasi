@@ -20,7 +20,7 @@ configuration {
     message-margin:              0px 300px;
     message-padding:             12px;
     message-border-radius:       12px;
-    listview-spacing:            25px;
+    listview-spacing:            30px;
     element-padding:             35px 0px;
     element-border-radius:       30px;
 
@@ -44,7 +44,7 @@ window {
     width:                       1000px;
     border-radius:               50px;
     cursor:                      "default";
-    background-color:            #00000099;
+    background-color:            #00000088;
 }
 
 /*****----- Main Box -----*****/

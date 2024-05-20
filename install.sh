@@ -11,6 +11,7 @@ turquoiseColour="\e[0;36m\033[1m"
 grayColour="\e[0;37m\033[1m"
 
 echo -e "${yellowColour}[!] Updating system...${endColour}"
+sleep 1
 sudo apt-get update
 sudo apt-get upgrade
 
@@ -139,6 +140,7 @@ sudo mkdir "/usr/share/wallpapers/custom"
 sudo cp "wallpaper.jpeg" "/usr/share/wallpapers/custom/wallpaper.jpg"
 
 echo -e "${yellowColour}[!] Installing fonts...${endColour}"
+sleep 1
 sudo cp ./fonts/Hack* /usr/local/share/fonts/
 sudo rm ./fonts/Hack*
 sudo cp ./fonts/* /usr/local/share/fonts/truetype/

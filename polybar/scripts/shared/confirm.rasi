@@ -40,7 +40,7 @@ message {
     margin:                      0px;
     padding:                     20px;
     border-radius:               20px;
-    background-color:            @background-alt;
+    background-color:            #00000000;
     text-color:                  @foreground;
 }
 textbox {
@@ -51,6 +51,7 @@ textbox {
     placeholder-color:           @foreground;
     blink:                       true;
     markup:                      true;
+    font: "Hack Nerd Font 30";
 }
 
 /*****----- Listview -----*****/
@@ -89,5 +90,5 @@ element-text {
 }
 element selected.normal {
     background-color:            var(selected);
-    text-color:                  var(background);
+    text-color:                  @foreground;
 }
