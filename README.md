@@ -21,7 +21,7 @@ Follow the steps below to install the Kali Linux environment using the `install.
 1. **Clone the Repository**: First, clone this repository to your local machine.
    ```bash
    git clone https://github.com/eriic1002/kali-environment-autoinstaller.git
-   cd work-environment-autoinstaller
+   cd kali-environment-autoinstaller
    ```
 
 2. **Grant Execution Permissions**: You must grant execution permissions to the `install.sh` script:
