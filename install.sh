@@ -10,6 +10,8 @@ purpleColour="\e[0;35m\033[1m"
 turquoiseColour="\e[0;36m\033[1m"
 grayColour="\e[0;37m\033[1m"
 
+USER=$(whoami)
+
 echo -e "${yellowColour}[!] Updating system...${endColour}"
 sleep 1
 sudo apt-get update -y
@@ -30,7 +32,6 @@ cd i3lock-fancy
 sudo make install
 cd ..
 
-USER=$(whoami)
 echo -e "${yellowColour}[!] Installing bspwm...${endColour}"
 sleep 1
 sudo apt install bspwm -y
@@ -91,10 +92,17 @@ sudo apt install libconfig-dev libdbus-1-dev libegl-dev libev-dev libgl-dev \
     libxcb-render-util0-dev libxcb-shape0-dev libxcb-util-dev libxcb-xfixes0-dev \
     libxext-dev meson ninja-build uthash-dev cmake -y
 
+sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev \
+  libxcb-render-util0-dev libxcb-render0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev \
+  libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev \
+  uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev libev-dev -y
+
 git clone https://github.com/yshui/picom ./picom-installer
-cd picom-installer/; meson setup --buildtype=release build
+cd picom-installer/
+git checkout 89c2c85
+meson setup --buildtype=release build
 ninja -C build
-ninja -C build install
+sudo ninja -C build install
 cd ..
 mkdir "/home/$USER/.config/picom"
 cp ./picom/picom.conf /home/$USER/.config/picom/
@@ -119,7 +127,6 @@ cp ./zsh/.zshrc "/home/$USER/"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/$USER/powerlevel10k
 cp ./zsh/.p10k.zsh "/home/$USER/"
 sudo rm /root/.zshrc
-USER=$(whoami)
 sudo ln /home/$USER/.zshrc /root/.zshrc
 sudo ln /home/$USER/.p10k.zsh /root/.p10k.zsh 
 sudo cp -r /home/$USER/powerlevel10k /root/
@@ -129,7 +136,7 @@ sudo usermod -s /bin/zsh root
 sudo cp ./zsh/main-highlighter.zsh /usr/share/zsh-syntax-highlighting/highlighters/main/main-highlighter.zsh
 sudo mkdir /usr/share/zsh-sudo
 sudo wget -P /usr/share/zsh-sudo https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
-sudo apt install bat lsd
+sudo apt install bat lsd -y
 cp ./zsh/.inputrc /home/$USER/
 
 echo -e "${yellowColour}[!] Installing feh...${endColour}"
