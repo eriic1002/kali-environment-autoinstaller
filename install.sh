@@ -23,7 +23,7 @@ sudo apt install build-essential git vim libxcb-util0-dev libxcb-ewmh-dev \
     libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev \
     libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev xclip locate i3lock-fancy \
     open-vm-tools-desktop open-vm-tools libxcb-randr0-dev libxcb-xtest0-dev libxcb-xinerama0-dev \
-    libxcb-shape0-dev libxcb-xkb-dev libpcre3-dev libglib2.0-bin -y
+    libxcb-shape0-dev libxcb-xkb-dev libpcre3-dev libglib2.0-bin wmname -y
 
 echo -e "${yellowColour}[!] Installing i3lock-fancy...${endColour}"
 sleep 1
@@ -74,6 +74,8 @@ sleep 1
 sudo apt install polybar -y
 mkdir /home/$USER/.config/polybar
 cp -r ./polybar/* /home/$USER/.config/polybar/
+chmod +x /home/$USER/.config/polybar/launch.sh
+chmod +x /home/$USER/.config/polybar/scripts/powermenu
 
 
 echo -e "${yellowColour}[!] Configuring lightdm...${endColour}"
@@ -99,7 +101,7 @@ sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0
 
 git clone https://github.com/yshui/picom ./picom-installer
 cd picom-installer/
-git checkout 89c2c85
+git checkout b6e2b93b
 meson setup --buildtype=release build
 ninja -C build
 sudo ninja -C build install
@@ -114,6 +116,7 @@ mkdir /home/$USER/.config/rofi
 mkdir /home/$USER/.config/rofi/themes
 cp ./rofi/rounded-common.rasi /home/$USER/.config/rofi/themes/
 cp ./rofi/rounded-custom.rasi /home/$USER/.config/rofi/themes/
+rofi-theme-selector
 
 
 echo -e "${yellowColour}[!] Installing Hack Nerd Fonts...${endColour}"
@@ -150,14 +153,10 @@ echo -e "${yellowColour}[!] Installing fonts...${endColour}"
 sleep 1
 sudo cp ./fonts/Hack* /usr/local/share/fonts/
 sudo rm ./fonts/Hack*
+sudo mkdir /usr/local/share/fonts/truetype/
 sudo cp ./fonts/* /usr/local/share/fonts/truetype/
 fc-cache -v
 
-echo -e "${yellowColour}[!] Configuring Burpsuite...${endColour}"
-sleep 1
-cat /home/$USER/.BurpSuite/UserConfigCommunity.json | sed 's/Light/Dark/; s/11/13/g' > tmp.tmp
-cat tmp.tmp > /home/$USER/.BurpSuite/UserConfigCommunity.json
-rm tmp.tmp
 
 echo -e "${yellowColour}[!] Installing Nvim with Nvchad...${endColour}"
 sleep 1
@@ -166,16 +165,6 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
 rm nvim-linux64.tar.gz
-echo '-- Configuración de transparencia
-vim.cmd([[
-  hi Normal guibg=NONE ctermbg=NONE
-  hi LineNr guibg=NONE ctermbg=NONE
-  hi SignColumn guibg=NONE ctermbg=NONE
-  hi NormalNC guibg=NONE ctermbg=NONE
-  hi EndOfBuffer guibg=NONE ctermbg=NONE
-]])' >> /home/$USER/.config/nvim/init.lua
-cp ./nvim/chadrc.lua /home/$USER/.config/nvim/lua/chadrc.lua
-cp ./nvim/init.lua /home/$USER/.local/share/nvim/lazy/NvChad/lua/nvchad/plugins/init.lua
 
 sudo cp -r /home/$USER/.config/nvim /root/.config/
 sudo cp ./nvim/chadrc.lua /root/.config/nvim/lua/chadrc.lua
