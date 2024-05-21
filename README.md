@@ -4,7 +4,8 @@ This project provides an automatic installation script to set up a **Kali Linux*
 The `install.sh` script installs all necessary tools and configurations for a complete Kali Linux setup.
 
 ## Preview
-
+![home-image](./images/background.png)
+![nvim-image](./images/nvim.png)
 
 ## Requirements
 
@@ -33,7 +34,7 @@ Follow the steps below to install the Kali Linux environment using the `install.
    ./install.sh
    ```
 4. Provide your user's password to use commands with sudo.
-5. Follow the instalation steps.
+5. Follow the installation steps.
 
 ### Optional configurations after installation
 If you want to set nvim transparent you can execute `configure-nvim.sh`.
@@ -56,6 +57,7 @@ chmod +x configure-nvim.sh
 ```bash
 ./configure-nvim.sh
 ```
+7. **Set oxocarbon theme**: Execute vim and do space + t + h and select oxocarbon theme
 
 ## Contact
 For questions, issues, or suggestions, please open an **issue** in the repository. 
