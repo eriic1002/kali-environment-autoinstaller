@@ -70,6 +70,16 @@ Follow the steps below to install the Kali Linux environment using the `install.
 - [**lsd**](https://github.com/lsd-rs/lsd): A ls with a lot of pretty colors.
 - [**Hack Nerd fonts**](https://www.nerdfonts.com/font-downloads): A font patched with Nerd fonts.
 
+## ZSH Custom functions
+There are a custom function in the `~/.zshrc` file that you can use to change the target ip of the `polybar`:
+```bash
+function set_target(){
+	ip_address=$1
+	echo "$ip_address" > ~/.config/bspwm/scripts/target_ip
+}
+```
+For see more useful custom functions, you can check the `~/.zshrc` file.
+
 
 ## Contact
 For questions, issues, or suggestions, please open an **issue** in the repository. 
