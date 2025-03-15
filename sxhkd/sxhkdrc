@@ -4,11 +4,15 @@
 
 # terminal emulator
 super + Return
-        /usr/bin/gnome-terminal
+        /usr/bin/kitty
 
 # program launcher
 super + r
         /usr/bin/rofi -show run
+
+super + f
+	/usr/bin/firefox
+
 
 # make sxhkd reload its configuration files:
 super + Escape

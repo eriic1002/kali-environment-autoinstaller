@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # zshrc
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
 # History
 HISTFILE=~/.zsh_history
@@ -51,30 +51,33 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Makes ls names to unbold
-# export LS_COLORS=$(echo $LS_COLORS | sed 's/=01;/=/g')
+export LS_COLORS=$(echo $LS_COLORS | sed 's/=01;/=/g')
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-# <<<<<< Custom Alias >>>>>>
-
-# batcat
+# Alias
 alias cat='batcat'
 alias catn='batcat --style=plain'
 alias catnp='batcat --style=plain --paging=never'
-
-# ls
 alias ll='lsd -lh --group-dirs=first'
 alias la='lsd -a --group-dirs=first'
 alias l='lsd --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
 alias ls='lsd --group-dirs=first'
+alias vi='nvim'
 alias vim='nvim'
 
+# Bindkeys
+WORDCHARS='*?[]~=&;!#$%^(){}<>'
+bindkey -e
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
+bindkey '^[[3;5~' backward-kill-word
+bindkey '^[[3;3~' kill-word
 
- 
-# <<<<<< Custom functions >>>>>>
+# Functions
 function set_target(){
 	ip_address=$1
 	echo "$ip_address" > ~/.config/bspwm/scripts/target_ip
@@ -82,10 +85,27 @@ function set_target(){
 
 function clear_target(){
 	echo "" > ~/.config/bspwm/scripts/target_ip
+
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+function mkt() {
+	mkdir {nmap,content,scripts}
+}
 
-source ~/.inputrc
+function extract_ports(){
+	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
+	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
+	echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
+	echo -e "\t[*] IP Address: $ip_address"  >> extractPorts.tmp
+	echo -e "\t[*] Open ports: $ports\n"  >> extractPorts.tmp
+	echo $ports | tr -d '\n' | xclip -sel clip
+	echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
+	cat extractPorts.tmp; rm extractPorts.tmp
+}
 
-export PATH="$PATH:/opt/nvim-linux64/bin"
+function clear_history(){
+	echo '' > ~/.zsh_history
+}
+
+# Plugins
+source < (fzf --zsh)
