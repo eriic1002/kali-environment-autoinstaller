@@ -17,11 +17,11 @@ configuration {
     /* Resolution : 1920x1080 */
     mainbox-spacing:             50px;
     mainbox-margin:              50px;
-    message-margin:              0px 300px;
+    message-margin:              0px 250px;
     message-padding:             12px;
     message-border-radius:       12px;
     listview-spacing:            30px;
-    element-padding:             35px 0px;
+    element-padding:             50px 0px;
     element-border-radius:       30px;
 
     prompt-font:                 "Iosevka Nerd Font Bold 48";
@@ -41,7 +41,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       1000px;
+    width:                       800px;
     border-radius:               50px;
     cursor:                      "default";
     background-color:            #00000088;
@@ -54,6 +54,7 @@ mainbox {
     margin:                      var(mainbox-margin);
     background-color:            transparent;
     children:                    [ "dummy", "inputbar", "listview", "message", "dummy" ];
+    justify-content:             center;
 }
 
 /*****----- Inputbar -----*****/
@@ -95,7 +96,7 @@ textbox {
 listview {
     enabled:                     true;
     expand:                      false;
-    columns:                     5;
+    columns:                     3;
     lines:                       1;
     cycle:                       true;
     dynamic:                     true;

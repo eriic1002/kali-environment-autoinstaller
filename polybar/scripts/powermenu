@@ -20,8 +20,6 @@ host=`hostname`
 # Options
 shutdown=''
 reboot=''
-lock=''
-suspend=''
 logout=''
 yes=''
 no=''
@@ -49,7 +47,7 @@ confirm_exit() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+	echo -e "$logout\n$reboot\n$shutdown" | rofi_cmd
 }
 
 # Execute Command
@@ -60,8 +58,6 @@ run_cmd() {
 			systemctl poweroff
 		elif [[ $1 == '--reboot' ]]; then
 			systemctl reboot
-		elif [[ $1 == '--suspend' ]]; then
-			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
 			if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
 				openbox --exit
@@ -86,12 +82,6 @@ case ${chosen} in
         ;;
     $reboot)
 		run_cmd --reboot
-        ;;
-    $lock)
-		/usr/bin/i3lock-fancy
-        ;;
-    $suspend)
-		run_cmd --suspend
         ;;
     $logout)
 		run_cmd --logout

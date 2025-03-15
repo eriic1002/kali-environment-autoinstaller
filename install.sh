@@ -18,15 +18,6 @@ if [ "$USER" == "root" ]; then
 fi
 
 
-# Install i3-lock-fancy
-clear
-echo -e "${yellowColour}[!] Installing i3lock-fancy...${endColour}"
-sleep 2
-git clone https://github.com/meskarune/i3lock-fancy.git
-cd i3lock-fancy
-sudo make install
-cd ..
-
 # Install bspwm
 clear
 echo -e "${yellowColour}[!] Installing bspwm...${endColour}"
