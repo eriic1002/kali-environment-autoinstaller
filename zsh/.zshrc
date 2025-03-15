@@ -108,4 +108,4 @@ function clear_history(){
 }
 
 # Plugins
-source < (fzf --zsh)
+source <(fzf --zsh)
