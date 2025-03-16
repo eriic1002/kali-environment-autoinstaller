@@ -55,6 +55,7 @@ sudo apt install kitty -y
 mkdir "/home/$USER/.config/kitty"
 cp ./kitty/kitty.conf "/home/$USER/.config/kitty/"
 cp ./kitty/color.ini "/home/$USER/.config/kitty/"
+sudo ln -s /home/$USER/.config/kitty/ /root/.config/kitty
 
 clear
 echo -e "${yellowColour}[!] Installing polybar...${endColour}"
