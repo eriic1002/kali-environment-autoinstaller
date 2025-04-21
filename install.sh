@@ -151,15 +151,17 @@ nvim --headless '+Lazy! sync' +qa
 cp ./nvim/chadrc.lua "/home/$USER/.config/nvim/lua/chadrc.lua"
 cp ./nvim/init.lua "/home/$USER/.local/share/nvim/lazy/NvChad/lua/nvchad/plugins/init.lua"
 nvim --headless -c "lua require('base46').load_all_highlights()" -c "quit"
-sudo ln -s /home/$USER/.config/nvim /root/.config/nvim
 sudo nvim --headless '+Lazy! sync' +qa
+sudo rm -rf /root/.config/nvim
+sudo rm -rf /root/.local/share/nvim
+sudo ln -s /home/$USER/.config/nvim /root/.config/nvim
+sudo ln -s /home/$USER/.local/share/nvim /root/.local/share/nvim
 sudo nvim --headless -c "lua require('base46').load_all_highlights()" -c "quit"
-sudo cp ./nvim/init.lua "/root/.local/share/nvim/lazy/NvChad/lua/nvchad/plugins/init.lua"
 
 clear
 echo -e "${yellowColour}[!] Installing some essential tools...${endColour}"
 sleep 2
-sudo apt install gobuster seclists -y
+sudo apt install gobuster seclists vmname -y
 sudo apt install bat lsd fzf -y
 
 clear

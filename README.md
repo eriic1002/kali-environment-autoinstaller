@@ -47,7 +47,7 @@ Follow the steps below to install the Kali Linux environment using the `install.
 ## Tips
 - **Customize the Installation**: You can customize the installation by commenting out the tools you don't want to install in the `install.sh` script or following the script step by step.
 
-- **Picom bugs**: First try to enable "Accelerate 3D graphics" in Virtual Machine Settings (VMWare Workstation). If you have problems with picom, you can try to change the configuration in the `~/.config/picom/picom.conf` file. Or you can delete the picom line of `~/.config/bspwm/bspswmrc` file.
+- **Picom bugs**: First try to enable "Accelerate 3D graphics" in Virtual Machine Settings. If you have problems with picom, you can try to change the configuration in the `~/.config/picom/picom.conf` file. Or you can delete the picom line of `~/.config/bspwm/bspswmrc` file.
 
 - **Customize the wallpaper**: You can change the wallpaper before installation replacing the `wallpaper.jpg` file in the repository folder. Also, you can change the wallpaper after installation in the `~/.config/bspwm/bspwmrc` file.
 
@@ -85,4 +85,4 @@ For see more useful custom functions, you can check the `~/.zshrc` file.
 For questions, issues, or suggestions, please open an **issue** in the repository. 
 
 ## Information
-**Disclaimer**: This script is provided "as is" without any warranty. Use it at your own risk. Fully tested it in VMWare workstation.
+**Disclaimer**: This script is provided "as is" without any warranty. Use it at your own risk. Fully tested it in VMWare workstation and Virtualbox.
