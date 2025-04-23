@@ -56,6 +56,8 @@ mkdir "/home/$USER/.config/kitty"
 cp ./kitty/kitty.conf "/home/$USER/.config/kitty/"
 cp ./kitty/color.ini "/home/$USER/.config/kitty/"
 sudo ln -s /home/$USER/.config/kitty/ /root/.config/kitty
+sudo cp ./kitty/kitty-root /usr/bin/kitty-root
+chmod +x /usr/bin/kitty-root
 
 clear
 echo -e "${yellowColour}[!] Installing polybar...${endColour}"
