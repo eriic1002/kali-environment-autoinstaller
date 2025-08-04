@@ -1,0 +1,16 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=kitty (root)
+GenericName=Root terminal emulator
+Comment=Fast, feature-rich, GPU based terminal
+TryExec=kitty-root
+StartupNotify=true
+Exec=kitty-root
+Icon=kitty
+Categories=System;TerminalEmulator;
+X-TerminalArgExec=--
+X-TerminalArgTitle=--title
+X-TerminalArgAppId=--class
+X-TerminalArgDir=--working-directory
+X-TerminalArgHold=--hold

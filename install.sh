@@ -57,7 +57,8 @@ cp ./kitty/kitty.conf "/home/$USER/.config/kitty/"
 cp ./kitty/color.ini "/home/$USER/.config/kitty/"
 sudo ln -s /home/$USER/.config/kitty/ /root/.config/kitty
 sudo cp ./kitty/kitty-root /usr/bin/kitty-root
-chmod +x /usr/bin/kitty-root
+sudo chmod +x /usr/bin/kitty-root
+cp ./kitty/kitty-root.desktop /home/$USER/.local/share/applications/
 
 clear
 echo -e "${yellowColour}[!] Installing polybar...${endColour}"

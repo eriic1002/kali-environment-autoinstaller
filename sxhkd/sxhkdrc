@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + r
-        /usr/bin/rofi -show run -theme ~/.config/rofi/themes/rounded-custom.rasi
+        /usr/bin/rofi -show-icons -show drun -theme ~/.config/rofi/themes/rounded-custom.rasi
 
 super + f
 	/usr/bin/firefox
