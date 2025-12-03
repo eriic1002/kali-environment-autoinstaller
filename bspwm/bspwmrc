@@ -17,8 +17,7 @@ vmware-user-suid-wrapper &
 
 feh --bg-fill /usr/share/wallpapers/custom/wallpaper.jpg &  # Set wallpaper
 
-/usr/local/bin/picom &
-wmname LG3D & # Fix for Java applications not rendering properly
+/usr/bin/picom &
 /usr/libexec/polkit-mate-authentication-agent-1 & # Polkit to manage apps with password requirements
 
 ~/./.config/polybar/launch.sh & # Launch Polybar
