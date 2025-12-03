@@ -58,6 +58,7 @@ cp ./kitty/color.ini "/home/$USER/.config/kitty/"
 sudo ln -s /home/$USER/.config/kitty/ /root/.config/kitty
 sudo cp ./kitty/kitty-root /usr/bin/kitty-root
 sudo chmod +x /usr/bin/kitty-root
+mkdir -p /home/$USER/.local/share/applications/ 2>/dev/null
 cp ./kitty/kitty-root.desktop /home/$USER/.local/share/applications/
 
 clear
@@ -79,19 +80,7 @@ rm tmp.tmp
 clear
 echo -e "${yellowColour}[!] Installing picom...${endColour}"
 sleep 2
-sudo apt install libconfig-dev libdbus-1-dev libegl-dev libev-dev \
-      libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev libx11-xcb-dev \
-      libxcb1-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev \
-      libxcb-image0-dev libxcb-present-dev libxcb-randr0-dev libxcb-render0-dev \
-      libxcb-render-util0-dev libxcb-shape0-dev libxcb-util-dev libxcb-xfixes0-dev \
-      meson ninja-build uthash-dev -y
-
-git clone https://github.com/yshui/picom ./picom-installer
-cd picom-installer/
-meson setup --buildtype=release build
-ninja -C build
-sudo ninja -C build install
-cd ..
+sudo apt install picom -y
 mkdir "/home/$USER/.config/picom"
 cp ./picom/picom.conf /home/$USER/.config/picom/
 
@@ -140,31 +129,9 @@ sudo cp ./fonts/* /usr/local/share/fonts/truetype/
 fc-cache -v
 
 clear
-echo -e "${yellowColour}[!] Installing Nvim with Nvchad...${endColour}"
-sleep 2
-sudo apt-get install ninja-build gettext cmake curl build-essential -y
-git clone https://github.com/neovim/neovim
-cd neovim
-git checkout stable
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make install
-cd ..
-git clone https://github.com/NvChad/starter ~/.config/nvim
-nvim --headless '+Lazy! sync' +qa
-cp ./nvim/chadrc.lua "/home/$USER/.config/nvim/lua/chadrc.lua"
-cp ./nvim/init.lua "/home/$USER/.local/share/nvim/lazy/NvChad/lua/nvchad/plugins/init.lua"
-nvim --headless -c "lua require('base46').load_all_highlights()" -c "quit"
-sudo nvim --headless '+Lazy! sync' +qa
-sudo rm -rf /root/.config/nvim
-sudo rm -rf /root/.local/share/nvim
-sudo ln -s /home/$USER/.config/nvim /root/.config/nvim
-sudo ln -s /home/$USER/.local/share/nvim /root/.local/share/nvim
-sudo nvim --headless -c "lua require('base46').load_all_highlights()" -c "quit"
-
-clear
 echo -e "${yellowColour}[!] Installing some essential tools...${endColour}"
 sleep 2
-sudo apt install gobuster seclists vmname -y
+sudo apt install gobuster seclists caido -y
 sudo apt install bat lsd fzf -y
 
 clear
