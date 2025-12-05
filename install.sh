@@ -113,6 +113,14 @@ sudo mkdir /usr/share/zsh-sudo
 sudo wget -P /usr/share/zsh-sudo https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
 
 clear
+echo -e "${yellowColour}[!] Installing neovim${endColour}"
+sudo apt install neovim -y
+mkdir -p /home/$USER/.config/nvim 2>/dev/null
+cp ./nvim/init.lua /home/$USER/.config/nvim/init.lua
+sudo mkdir -p /root/.config/nvim 2>/dev/null
+sudo ln -s /home/$USER/.config/nvim/init.lua /root/.config/nvim/init.lua
+
+clear
 echo -e "${yellowColour}[!] Installing feh...${endColour}"
 sleep 2
 sudo apt install feh -y
