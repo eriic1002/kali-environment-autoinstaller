@@ -119,6 +119,10 @@ mkdir -p /home/$USER/.config/nvim 2>/dev/null
 cp ./nvim/init.lua /home/$USER/.config/nvim/init.lua
 sudo mkdir -p /root/.config/nvim 2>/dev/null
 sudo ln -s /home/$USER/.config/nvim/init.lua /root/.config/nvim/init.lua
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+\. "$HOME/.nvm/nvm.sh"
+nvm install 24
+git clone --depth=1 https://github.com/github/copilot.vim.git ~/.config/nvim/pack/github/start/copilot.vim
 
 clear
 echo -e "${yellowColour}[!] Installing feh...${endColour}"
