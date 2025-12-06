@@ -6,11 +6,13 @@ The `install.sh` script installs all necessary tools and configurations for a co
 ## Preview
 ![home-image](./images/background.png)
 ___
+![p10k-image](./images/p10k.png)
+___
+![rofi-image](./images/rofi.png)
+___
 ![nvim-image](./images/nvim.png)
 ___
 ![powermenu-image](./images/powermenu.png)
-___
-![p10k-image](./images/p10k.png)
 
 ## Requirements
 
@@ -59,7 +61,6 @@ Follow the steps below to install the Kali Linux environment using the `install.
 - [**picom**](https://github.com/yshui/picom): A compositor for X11.
 - [**kitty**](https://github.com/kovidgoyal/kitty): A modern, hackable, featureful, GPU-based terminal emulator.
 - [**Neovim**](https://github.com/neovim/neovim): A highly configurable text editor.
-- [**NvChad**](https://github.com/NvChad/NvChad): A Neovim setup configured with Lua.
 - [**zsh**](https://github.com/zsh-users/zsh): A shell designed for interactive use.
 - [**zsh-autosuggestions**](https://github.com/zsh-users/zsh-autosuggestions): Fish-like autosuggestions for zsh.
 - [**zsh-syntax-highlighting**](https://github.com/zsh-users/zsh-syntax-highlighting): Fish shell like syntax highlighting for Zsh.
