@@ -16,7 +16,7 @@ configuration {
 * {
     /* Resolution : 1920x1080 */
     mainbox-spacing:             50px;
-    mainbox-margin:              50px;
+    mainbox-margin:              20px 50px;
     message-margin:              0px 250px;
     message-padding:             12px;
     message-border-radius:       12px;
@@ -53,7 +53,7 @@ mainbox {
     spacing:                     var(mainbox-spacing);
     margin:                      var(mainbox-margin);
     background-color:            transparent;
-    children:                    [ "dummy", "inputbar", "listview", "message", "dummy" ];
+    children:                    [ "dummy", "inputbar", "listview", "dummy" ];
     justify-content:             center;
 }
 
