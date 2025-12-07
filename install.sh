@@ -143,7 +143,7 @@ fc-cache -v
 clear
 echo -e "${yellowColour}[!] Installing some essential tools...${endColour}"
 sleep 2
-sudo apt install gobuster seclists caido -y
+sudo apt install gobuster seclists caido suckless-tools -y
 sudo apt install bat lsd fzf -y
 
 clear
